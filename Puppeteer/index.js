@@ -25,7 +25,7 @@ browserOpenPromise.then(function(browser){
     return loginClickPromise;
 })
 .then(function(){
-    console.log("logged in");
+    console.log("logged in hackerank");
 })
 .catch(function(){
     console.log("error");
