@@ -1,6 +1,10 @@
 const puppeteer = require("puppeteer");
 
-let browserOpenPromise = puppeteer.launch({headless:false});
+let browserOpenPromise = puppeteer.launch({
+    headless:false,
+    defaultViewport : null,
+    args : ["--start-maximized"]
+});
 let tab;
 browserOpenPromise.then(function(browser){
     let pagesPromise = browser.pages();
@@ -25,8 +29,49 @@ browserOpenPromise.then(function(browser){
     return loginClickPromise;
 })
 .then(function(){
-    console.log("logged in hackerank");
+    // let it wait to write the DOM
+    // two diffeent thing.. to get data and to load it in DOM
+    let waitPromise = tab.waitForSelector("#base-card-1-link",{visible:true});
+    return waitPromise;
 })
-.catch(function(){
-    console.log("error");
+.then(function(){   
+    let ipkitClickPromise = tab.click("#base-card-1-link");
+    return ipkitClickPromise;
+})
+.then(function(){
+    // let it wait to write the DOM
+    // two diffeent thing.. to get data and to load it in DOM
+    let waitPromise = tab.waitForSelector("#base-card-1-link",{visible:true});
+    return waitPromise;
+})
+.then(function(){
+    let warmupClickPromise = tab.click("#base-card-1-link");
+    return warmupClickPromise;
+})
+.then(function(){
+    // let it wait to write the DOM
+    // two diffeent thing.. to get data and to load it in DOM
+    let waitPromise = tab.waitForSelector(".js-track-click.challenge-list-item",{visible:true});
+    return waitPromise;
+})
+.then(function(){
+    let allQuestionsPromise = tab.$$(".js-track-click.challenge-list-item");
+    return allQuestionsPromise;
+})
+.then(function(allQuestions){
+   
+    let allLinksPromise = [];
+    for(let i=0;i<allQuestions.length;i++){
+        let linkPendingPromise = tab.evaluate(function(elem){return elem.getAttribute("href");}, allQuestions[i]);
+        allLinksPromise.push(linkPendingPromise);
+    }
+
+    let allQuestionPromise = Promise.all(allLinksPromise);
+    return allQuestionPromise;
+})
+.then(function(allLinks){
+    console.log(allLinks);
+})
+.catch(function(error){
+    console.log(error);
 })
