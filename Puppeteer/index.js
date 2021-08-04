@@ -31,22 +31,18 @@ browserOpenPromise.then(function(browser){
 .then(function(){
     // let it wait to write the DOM
     // two diffeent thing.. to get data and to load it in DOM
-    let waitPromise = tab.waitForSelector("#base-card-1-link",{visible:true});
-    return waitPromise;
-})
-.then(function(){   
-    let ipkitClickPromise = tab.click("#base-card-1-link");
-    return ipkitClickPromise;
+    //Interview Preparation Kit
+    let waitAndClickPromise = waitAndClick("#base-card-1-link");
+    return waitAndClickPromise
 })
 .then(function(){
     // let it wait to write the DOM
     // two diffeent thing.. to get data and to load it in DOM
-    let waitPromise = tab.waitForSelector("#base-card-1-link",{visible:true});
-    return waitPromise;
-})
-.then(function(){
-    let warmupClickPromise = tab.click("#base-card-1-link");
-    return warmupClickPromise;
+    // let waitPromise = tab.waitForSelector("#base-card-1-link",{visible:true});
+    // return waitPromise;
+    //WarmUpChallenge
+    let waitAndClickPromise = waitAndClick("#base-card-1-link");
+    return waitAndClickPromise;
 })
 .then(function(){
     // let it wait to write the DOM
@@ -70,8 +66,55 @@ browserOpenPromise.then(function(browser){
     return allQuestionPromise;
 })
 .then(function(allLinks){
-    console.log(allLinks);
+    // console.log(allLinks);
+    let completeLinks=[];
+    for(let i=0;i<allLinks.length;i++){
+         let prefix = "https://www.hackerrank.com/";
+         completeLinks.push(prefix+allLinks[i]);
+    }
+    return Promise.all(completeLinks);
+})
+.then(function(completeLinks){
+    // console.log(completeLinks);
+    let link = completeLinks[0];
+    return solveOneProblem(link);
+})
+// .then(function(){
+//     console.log("in i want to unlock");
+//     let waitPromise = waitAndClick(".ui-btn.ui-btn-normal.ui-btn-primary.ui-btn-styled");
+//     return waitPromise;
+// })
+.then(function(){
+
 })
 .catch(function(error){
-    console.log(error);
+    console.log(error); 
 })
+
+
+function solveOneProblem(link){
+    return new Promise(function(resolve,reject){
+        let openQuestionPromise = tab.goto(link);
+        openQuestionPromise.then(function(){
+            let waitPromise = waitAndClick('div[data-attr2="Editorial"]');
+            return waitPromise;
+        })
+        .then(function(){
+            let waitPromise = waitAndClick(".ui-btn.ui-btn-normal.ui-btn-primary.ui-btn-styled");
+           return waitPromise;
+        })
+        .catch(function(){
+
+        })
+    })
+    
+    
+}
+
+function waitAndClick(selector){
+    let waitPromise = tab.waitForSelector(selector,{visible:true});
+    waitPromise.then(function(){
+        let clickPromise = tab.click(selector);
+         return clickPromise;
+    })
+}
