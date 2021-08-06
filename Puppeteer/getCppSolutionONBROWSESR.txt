@@ -1,0 +1,91 @@
+let allTexts = document.querySelectorAll("hackdown-content h3")
+undefined
+allTexts
+NodeList []length: 0[[Prototype]]: NodeList
+let allTexts[] = document.querySelectorAll("hackdown-content h3")
+VM695:1 Uncaught SyntaxError: Unexpected token '['
+let allTexts = document.querySelectorAll(".hackdown-content h3")
+undefined
+allTexts
+NodeList(3) [h3, h3, h3]0: h3accessKey: ""align: ""ariaAtomic: nullariaAutoComplete: nullariaBusy: nullariaChecked: nullariaColCount: nullariaColIndex: nullariaColSpan: nullariaCurrent: nullariaDescription: nullariaDisabled: nullariaExpanded: nullariaHasPopup: nullariaHidden: nullariaKeyShortcuts: nullariaLabel: nullariaLevel: nullariaLive: nullariaModal: nullariaMultiLine: nullariaMultiSelectable: nullariaOrientation: nullariaPlaceholder: nullariaPosInSet: nullariaPressed: nullariaReadOnly: nullariaRelevant: nullariaRequired: nullariaRoleDescription: nullariaRowCount: nullariaRowIndex: nullariaRowSpan: nullariaSelected: nullariaSetSize: nullariaSort: nullariaValueMax: nullariaValueMin: nullariaValueNow: nullariaValueText: nullassignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {length: 0}autocapitalize: ""autofocus: falsebaseURI: "https://www.hackerrank.com/challenges/jumping-on-the-clouds/editorial"childElementCount: 0childNodes: NodeList [text]children: HTMLCollection []classList: DOMTokenList [value: ""]className: ""clientHeight: 25clientLeft: 0clientTop: 0clientWidth: 384contentEditable: "inherit"dataset: DOMStringMap {}dir: ""draggable: falseelementTiming: ""enterKeyHint: ""firstChild: textfirstElementChild: nullhidden: falseid: ""innerHTML: "Python 2"innerText: "Python 2"inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: textlastElementChild: nulllocalName: "h3"namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: div.highlightnextSibling: textnodeName: "H3"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 25offsetLeft: 50offsetParent: body#hr_v2.hr-communityoffsetTop: 731offsetWidth: 384onabort: nullonanimationend: nullonanimationiteration: nullonanimationstart: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforepaste: nullonbeforexrselect: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncontextmenu: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullonformdata: nullonfullscreenchange: nullonfullscreenerror: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerrawupdate: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonsearch: nullonseeked: nullonseeking: nullonselect: nullonselectionchange: nullonselectstart: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullontransitioncancel: nullontransitionend: nullontransitionrun: nullontransitionstart: nullonvolumechange: nullonwaiting: nullonwebkitanimationend: nullonwebkitanimationiteration: nullonwebkitanimationstart: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwebkittransitionend: nullonwheel: nullouterHTML: "<h3>Python 2</h3>"outerText: "Python 2"ownerDocument: documentparentElement: div.hackdown-contentparentNode: div.hackdown-contentpart: DOMTokenList [value: ""]prefix: nullpreviousElementSibling: svgpreviousSibling: svgscrollHeight: 25scrollLeft: 0scrollTop: 0scrollWidth: 384shadowRoot: nullslot: ""spellcheck: truestyle: CSSStyleDeclaration {additiveSymbols: "", alignContent: "", alignItems: "", alignSelf: "", alignmentBaseline: "", …}tabIndex: -1tagName: "H3"textContent: "Python 2"title: ""translate: true[[Prototype]]: HTMLHeadingElement(...)1: h32: h3length: 3[[Prototype]]: NodeList
+let texts =[]
+for(let i=0;i<allTexts.length;i++){
+      texts[i]=allTexts[i].textContent;
+}
+"C++"
+texts
+(3) ["Python 2", "Ruby", "C++"]
+let idx
+for(let i=0;i<texts.length;i++){}
+undefined
+let idx
+for(let i=0;i<texts.length;i++){
+}
+undefined
+let idx
+for(let i=0;i<texts.length;i++){
+    if(texts[i]="C++"){
+        idx=i 
+        break
+    }
+}
+0
+idx
+0
+let texts =[]
+for(let i=0;i<allTexts.length;i++){
+      texts[i]=allTexts[i].textContent;
+}
+"C++"
+texts
+(3) ["Python 2", "Ruby", "C++"]
+let idx
+for(let i=0;i<texts.length;i++){
+    if(texts[i]=="C++"){
+        idx=i 
+        break
+    }
+}
+2
+let allSol = document.querySelectorAll(".hackdown-content highlited")
+undefined
+allSol
+NodeList []
+let allSol = document.querySelectorAll(".hackdown-content highlight")
+undefined
+allSol
+NodeList []
+let allSol = document.querySelectorAll(".hackdown-content .highlight")
+undefined
+allSol
+NodeList(3) [div.highlight, div.highlight, div.highlight]
+console.log(allSol[idx])
+raven.js:55 <div class=​"highlight">​…​</div>​<pre>​<span>​</span>​<span class=​"cp">​#include​</span>​<span class=​"cpf">​<bits/stdc++.h>​</span>​<span class=​"cp">​</span>​<span class=​"k">​using​</span>​<span class=​"k">​namespace​</span>​<span class=​"n">​std​</span>​<span class=​"p">​;​</span>​<span class=​"k">​const​</span>​<span class=​"kt">​int​</span>​<span class=​"n">​inf​</span>​<span class=​"o">​=​</span>​<span class=​"mi">​555​</span>​<span class=​"p">​;​</span>​<span class=​"kt">​int​</span>​<span class=​"n">​A​</span>​<span class=​"p">​[​</span>​<span class=​"mi">​111​</span>​<span class=​"p">​],​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"mi">​111​</span>​<span class=​"p">​];​</span>​<span class=​"kt">​int​</span>​<span class=​"nf">​main​</span>​<span class=​"p">​()​</span>​<span class=​"p">​{​</span>​<span class=​"kt">​int​</span>​<span class=​"n">​n​</span>​<span class=​"p">​;​</span>​<span class=​"n">​cin​</span>​<span class=​"o">​>>​</span>​<span class=​"n">​n​</span>​<span class=​"p">​;​</span>​<span class=​"k">​for​</span>​<span class=​"p">​(​</span>​<span class=​"kt">​int​</span>​<span class=​"n">​i​</span>​<span class=​"o">​=​</span>​<span class=​"mi">​1​</span>​<span class=​"p">​;​</span>​<span class=​"n">​i​</span>​<span class=​"o">​<=​</span>​<span class=​"n">​n​</span>​<span class=​"p">​;​</span>​<span class=​"n">​i​</span>​<span class=​"o">​++​</span>​<span class=​"p">​)​</span>​<span class=​"p">​{​</span>​<span class=​"n">​cin​</span>​<span class=​"o">​>>​</span>​<span class=​"n">​A​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"p">​];​</span>​<span class=​"p">​}​</span>​<span class=​"k">​for​</span>​<span class=​"p">​(​</span>​<span class=​"kt">​int​</span>​<span class=​"n">​i​</span>​<span class=​"o">​=​</span>​<span class=​"mi">​2​</span>​<span class=​"p">​;​</span>​<span class=​"n">​i​</span>​<span class=​"o">​<=​</span>​<span class=​"n">​n​</span>​<span class=​"p">​;​</span>​<span class=​"n">​i​</span>​<span class=​"o">​++​</span>​<span class=​"p">​)​</span>​<span class=​"p">​{​</span>​<span class=​"k">​if​</span>​<span class=​"p">​(​</span>​<span class=​"n">​A​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"p">​]​</span>​<span class=​"o">​==​</span>​<span class=​"mi">​0​</span>​<span class=​"p">​)​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"p">​]​</span>​<span class=​"o">​=​</span>​<span class=​"n">​min​</span>​<span class=​"p">​(​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"o">​-​</span>​<span class=​"mi">​1​</span>​<span class=​"p">​],​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"o">​-​</span>​<span class=​"mi">​2​</span>​<span class=​"p">​])​</span>​<span class=​"o">​+​</span>​<span class=​"mi">​1​</span>​<span class=​"p">​;​</span>​<span class=​"k">​else​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"p">​]​</span>​<span class=​"o">​=​</span>​<span class=​"n">​inf​</span>​<span class=​"p">​;​</span>​<span class=​"p">​}​</span>​<span class=​"n">​cout​</span>​<span class=​"o">​<<​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"n">​n​</span>​<span class=​"p">​]​</span>​<span class=​"o">​<<​</span>​<span class=​"s">​"​</span>​<span class=​"se">​\n​</span>​<span class=​"s">​"​</span>​<span class=​"p">​;​</span>​<span class=​"k">​return​</span>​<span class=​"mi">​0​</span>​<span class=​"p">​;​</span>​<span class=​"p">​}​</span>​</pre>​</div>​
+undefined
+console.log(allSol[idx]).textContent
+raven.js:55 <div class=​"highlight">​…​</div>​<pre>​<span>​</span>​<span class=​"cp">​#include​</span>​<span class=​"cpf">​<bits/stdc++.h>​</span>​<span class=​"cp">​</span>​<span class=​"k">​using​</span>​<span class=​"k">​namespace​</span>​<span class=​"n">​std​</span>​<span class=​"p">​;​</span>​<span class=​"k">​const​</span>​<span class=​"kt">​int​</span>​<span class=​"n">​inf​</span>​<span class=​"o">​=​</span>​<span class=​"mi">​555​</span>​<span class=​"p">​;​</span>​<span class=​"kt">​int​</span>​<span class=​"n">​A​</span>​<span class=​"p">​[​</span>​<span class=​"mi">​111​</span>​<span class=​"p">​],​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"mi">​111​</span>​<span class=​"p">​];​</span>​<span class=​"kt">​int​</span>​<span class=​"nf">​main​</span>​<span class=​"p">​()​</span>​<span class=​"p">​{​</span>​<span class=​"kt">​int​</span>​<span class=​"n">​n​</span>​<span class=​"p">​;​</span>​<span class=​"n">​cin​</span>​<span class=​"o">​>>​</span>​<span class=​"n">​n​</span>​<span class=​"p">​;​</span>​<span class=​"k">​for​</span>​<span class=​"p">​(​</span>​<span class=​"kt">​int​</span>​<span class=​"n">​i​</span>​<span class=​"o">​=​</span>​<span class=​"mi">​1​</span>​<span class=​"p">​;​</span>​<span class=​"n">​i​</span>​<span class=​"o">​<=​</span>​<span class=​"n">​n​</span>​<span class=​"p">​;​</span>​<span class=​"n">​i​</span>​<span class=​"o">​++​</span>​<span class=​"p">​)​</span>​<span class=​"p">​{​</span>​<span class=​"n">​cin​</span>​<span class=​"o">​>>​</span>​<span class=​"n">​A​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"p">​];​</span>​<span class=​"p">​}​</span>​<span class=​"k">​for​</span>​<span class=​"p">​(​</span>​<span class=​"kt">​int​</span>​<span class=​"n">​i​</span>​<span class=​"o">​=​</span>​<span class=​"mi">​2​</span>​<span class=​"p">​;​</span>​<span class=​"n">​i​</span>​<span class=​"o">​<=​</span>​<span class=​"n">​n​</span>​<span class=​"p">​;​</span>​<span class=​"n">​i​</span>​<span class=​"o">​++​</span>​<span class=​"p">​)​</span>​<span class=​"p">​{​</span>​<span class=​"k">​if​</span>​<span class=​"p">​(​</span>​<span class=​"n">​A​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"p">​]​</span>​<span class=​"o">​==​</span>​<span class=​"mi">​0​</span>​<span class=​"p">​)​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"p">​]​</span>​<span class=​"o">​=​</span>​<span class=​"n">​min​</span>​<span class=​"p">​(​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"o">​-​</span>​<span class=​"mi">​1​</span>​<span class=​"p">​],​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"o">​-​</span>​<span class=​"mi">​2​</span>​<span class=​"p">​])​</span>​<span class=​"o">​+​</span>​<span class=​"mi">​1​</span>​<span class=​"p">​;​</span>​<span class=​"k">​else​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"n">​i​</span>​<span class=​"p">​]​</span>​<span class=​"o">​=​</span>​<span class=​"n">​inf​</span>​<span class=​"p">​;​</span>​<span class=​"p">​}​</span>​<span class=​"n">​cout​</span>​<span class=​"o">​<<​</span>​<span class=​"n">​dp​</span>​<span class=​"p">​[​</span>​<span class=​"n">​n​</span>​<span class=​"p">​]​</span>​<span class=​"o">​<<​</span>​<span class=​"s">​"​</span>​<span class=​"se">​\n​</span>​<span class=​"s">​"​</span>​<span class=​"p">​;​</span>​<span class=​"k">​return​</span>​<span class=​"mi">​0​</span>​<span class=​"p">​;​</span>​<span class=​"p">​}​</span>​</pre>​</div>​
+VM1714:1 Uncaught TypeError: Cannot read property 'textContent' of undefined
+    at <anonymous>:1:25
+(anonymous) @ VM1714:1
+console.log(allSol[idx].textContent)
+raven.js:55 #include <bits/stdc++.h>
+using namespace std;
+
+const int inf = 555;
+int A[111], dp[111];
+
+int main() {
+    int n; cin >> n;
+
+    for(int i=1; i<=n; i++) {
+        cin >> A[i];
+    }
+    for(int i=2; i<=n; i++) {
+        if(A[i] == 0) dp[i] = min(dp[i-1], dp[i-2]) + 1;
+        else dp[i] = inf;
+    }
+    cout << dp[n] << "\n";
+    return 0;
+}
+
+undefined

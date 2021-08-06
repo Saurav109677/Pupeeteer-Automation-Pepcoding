@@ -6,6 +6,8 @@ let browserOpenPromise = puppeteer.launch({
     args : ["--start-maximized"]
 });
 let tab;
+let globalIDX;
+let globalCode;
 browserOpenPromise.then(function(browser){
     let pagesPromise = browser.pages();
     return pagesPromise;
@@ -41,7 +43,8 @@ browserOpenPromise.then(function(browser){
     // let waitPromise = tab.waitForSelector("#base-card-1-link",{visible:true});
     // return waitPromise;
     //WarmUpChallenge
-    let waitAndClickPromise = waitAndClick("#base-card-1-link");
+    console.log("warmup challenge");
+    let waitAndClickPromise = waitAndClick('a[data-attr1="warmup"]');
     return waitAndClickPromise;
 })
 .then(function(){
@@ -72,20 +75,21 @@ browserOpenPromise.then(function(browser){
          let prefix = "https://www.hackerrank.com/";
          completeLinks.push(prefix+allLinks[i]);
     }
-    return Promise.all(completeLinks);
-})
-.then(function(completeLinks){
-    // console.log(completeLinks);
-    let link = completeLinks[0];
-    return solveOneProblem(link);
-})
-// .then(function(){
-//     console.log("in i want to unlock");
-//     let waitPromise = waitAndClick(".ui-btn.ui-btn-normal.ui-btn-primary.ui-btn-styled");
-//     return waitPromise;
-// })
-.then(function(){
 
+    // for multiple questions
+    // dont know why ont working
+//    let oneQuestionSovledPromise = solveOneProblem(completeLinks[0])
+//    for(let i=1;i<completeLinks.length;i++){
+//        oneQuestionSovledPromise =  oneQuestionSovledPromise.then(function(){
+//              nextQuestionSovledPromise = solveOneProblem(completeLinks[i])
+//              return nextQuestionSovledPromise;
+//         })
+//    }
+    let oneQuestionSolvePromise = solveOneProblem(completeLinks[0]);
+    return oneQuestionSolvePromise;
+})
+.then(function(){
+    console.log("from main","solved all questions");
 })
 .catch(function(error){
     console.log(error); 
@@ -100,21 +104,152 @@ function solveOneProblem(link){
             return waitPromise;
         })
         .then(function(){
-            let waitPromise = waitAndClick(".ui-btn.ui-btn-normal.ui-btn-primary.ui-btn-styled");
-           return waitPromise;
+            let unlockPromise = isUnlockButton();
+            return unlockPromise;
         })
-        .catch(function(){
-
+        .then(function(msg){
+            console.log(msg);
+            let codePromise = getCode();
+            return codePromise;
         })
-    })
-    
-    
+        .then(function(){
+            console.log("code cae");
+        })
+        .catch(function(error){
+            reject(error)
+        })
+    }) 
 }
 
-function waitAndClick(selector){
-    let waitPromise = tab.waitForSelector(selector,{visible:true});
-    waitPromise.then(function(){
-        let clickPromise = tab.click(selector);
-         return clickPromise;
+function getCode(){
+    return new Promise(function(resolve,reject){
+            // will have to wait again 
+        let waitPromise = tab.waitForSelector(".hackdown-content h3");
+        waitPromise.then(function(){
+            let allTextsArrayPromise = tab.$$(".hackdown-content h3")
+            return allTextsArrayPromise;
+        })
+        .then(function(allTextArray){
+            let onlyTextArray = [];
+            for(let i=0;i<allTextArray.length;i++){
+                let namePromise = tab.evaluate(function(elem){
+                    return elem.textContent;
+                },allTextArray[i])
+                onlyTextArray.push(namePromise);
+            }
+
+            let promiseAllNames = Promise.all(onlyTextArray);
+            return promiseAllNames;
+        })
+        .then(function(namesArray){
+            let idx;
+            for(let i=0;i<namesArray.length;i++){
+                if(namesArray[i]=="C++"){
+                    idx = i;
+                    break;
+                }
+            }
+            globalIDX = idx;
+            let allDivPromise = tab.$$(".hackdown-content .highlight")
+            return  allDivPromise;
+        })
+        .then(function(allDiv){
+            
+            let codePromise = tab.evaluate(function(elem){
+                return elem.textContent;
+            },allDiv[globalIDX])
+            return codePromise;
+        })
+        .then(function(code){
+            globalCode = code;
+            let clickProblemsPromise = tab.click("#tab-1-item-0");
+            return clickProblemsPromise;
+        })
+        .then(function(){
+            let pastePromise = pasteCode();
+            return pastePromise;
+        })
+        .then(function(){
+           let submitPromise =  tab.click(".ui-btn.ui-btn-normal.ui-btn-primary.pull-right.hr-monaco-submit.ui-btn-styled")
+            return submitPromise;
+        })
+        .then(function(){
+            console.log("success");
+        })
+        .catch(function(err){
+            console.log(err);
+        })
     })
+        
+}
+
+function pasteCode(){
+    return new Promise(function(resolve,reject){
+        let checkBoxPromise =  waitAndClick(".checkbox-input")
+         checkBoxPromise.then(function(){
+            let writeCodePromise = tab.type(".custom-input",globalCode);
+            return writeCodePromise;
+         })
+         .then(function(){
+             let clickCtrlPromise = tab.keyboard.down('Control');
+             return clickCtrlPromise;
+         })
+         .then(function(){
+             let aClickPromise = tab.keyboard.press("a");
+             return aClickPromise;
+         })
+         .then(function(){
+             let xClickPromise = tab.keyboard.press("x");
+             return xClickPromise;
+         })
+         .then(function(){
+             let tabClickPromise =  tab.click(".view-lines")
+             return tabClickPromise;
+         })
+         .then(function(){
+            let aClickPromise = tab.keyboard.press("a");
+            return aClickPromise;
+        })
+        .then(function(){
+            let vClickPromise = tab.keyboard.press("v");
+            return vClickPromise;
+        })
+         .then(function(){
+            resolve();
+         })
+         .catch(function(){
+            reject();
+         })
+    })
+}
+
+function isUnlockButton(){
+        console.log("in unlock");
+        return new Promise(function(resolve,reject){
+            let unlockButtonPromise = waitAndClick(".ui-btn.ui-btn-normal.ui-btn-primary.ui-btn-styled");
+            unlockButtonPromise.then(function(){
+                resolve("unlock button clicked");
+            })
+            unlockButtonPromise.catch(function(){
+                resolve("timeout and another page");
+            })
+        })
+}
+
+function waitAndClick(selector){    
+    return new Promise(function(resolve,reject){
+        let waitPromise = tab.waitForSelector(selector,{visible:true});
+        waitPromise.then(function(){
+            let clickPromise = tab.click(selector);
+             return clickPromise;
+        })
+        .then(function(){
+            resolve()
+        })
+        .catch(function(err){
+            reject(err);
+        })
+       
+    })
+    
 }
